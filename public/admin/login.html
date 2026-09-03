@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Вход в админ-панель — FlexarPPF</title>
+<link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+<body>
+<div class="login-screen">
+  <div class="login-card">
+    <h1>FlexarPPF</h1>
+    <p class="sub">Админ-панель</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="username">Логин</label>
+        <input id="username" name="username" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Войти</button>
+      <p class="error-text" id="errorText"></p>
+    </form>
+  </div>
+</div>
+<script src="/admin/js/login.js"></script>
+</body>
+</html>

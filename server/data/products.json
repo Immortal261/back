@@ -1,0 +1,38 @@
+[
+  {
+    "id": "flexarppf-gloss",
+    "category": "ppf",
+    "finish": "gloss",
+    "categoryLabel": "FlexarPPF",
+    "name": "FlexarPPF Глянец 200 мкр",
+    "thicknessMicron": 200,
+    "warrantyYears": 7,
+    "priceTenge": 180000,
+    "unit": "за 15м",
+    "description": "Глянцевая полиуретановая защитная плёнка с самовосстанавливающимся покрытием — сохраняет заводской блеск кузова и держит удар мелкого гравия.",
+    "tags": [
+      "самовосстановление",
+      "глянец",
+      "200 мкр",
+      "гидрофобный слой"
+    ]
+  },
+  {
+    "id": "flexarppf-satin",
+    "category": "ppf",
+    "finish": "satin",
+    "categoryLabel": "FlexarPPF",
+    "name": "FlexarPPF Сатин 200 мкр",
+    "thicknessMicron": 200,
+    "warrantyYears": 7,
+    "priceTenge": 250000,
+    "unit": "за 15м",
+    "description": "Матовая сатиновая полиуретановая плёнка — меняет фактуру кузова на бархатистую и защищает от сколов и царапин.",
+    "tags": [
+      "самовосстановление",
+      "сатин",
+      "200 мкр",
+      "гидрофобный слой"
+    ]
+  }
+]

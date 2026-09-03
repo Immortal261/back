@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FlexarPPF — антигравийная плёнка: глянец и сатин</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo">Flexar<span>PPF</span></div>
+    <nav class="main-nav">
+      <a href="#about">О продукте</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#gallery">Примеры работ</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-button" id="openCartBtn" aria-label="Открыть корзину">
+        Корзина <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero-video">
+  <!--
+    Видео-заглушка: постер показывается, пока нет реального видео.
+    Когда появится ролик с оклейкой авто — положите файл в /public/video/hero.mp4
+    и раскомментируйте строку <source> ниже.
+  -->
+  <video class="hero-video-el" autoplay muted loop playsinline poster="/img/hero-poster.svg">
+    <!-- <source src="/video/hero.mp4" type="video/mp4"> -->
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <img src="/img/logo.png" alt="FlexarPPF" class="hero-logo" />
+    <p class="eyebrow"></p>
+    <h1>Защита кузова, которая держит форму дольше гарантии</h1>
+    <p class="lead">
+      Антигравийная полиуретановая плёнка FlexarPPF толщиной 200 мкр —
+      глянцевая или сатиновая фактура, самовосстанавливающееся покрытие.
+      Установка в мастерской, гарантия до 7 лет, оплата Kaspi или картой.
+    </p>
+    <div class="hero-actions">
+      <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+      <a href="#contact" class="btn btn-secondary">Написать в Telegram</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint" aria-label="Прокрутить вниз">↓</a>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <p class="eyebrow">О продукте</p>
+      <h2>Почему FlexarPPF</h2>
+      <ul class="feature-list">
+        <li>Самовосстановление мелких царапин от тепла солнца или двигателя</li>
+        <li>Супергидрофобный верхний слой — грязь и вода не задерживаются</li>
+        <li>Устойчивость к ультрафиолету — плёнка не желтеет со временем</li>
+        <li>Глянцевая или сатиновая фактура на выбор</li>
+        <li>Гарантия на плёнку и работу — до 7 лет</li>
+        <li>Демонтаж без следов и без вреда для заводской краски</li>
+      </ul>
+    </div>
+
+    <div class="vlt-demo">
+      <div class="vlt-demo-label">
+        <span>FlexarPPF</span>
+        <span class="vlt-demo-value">200 мкр</span>
+      </div>
+      <div class="finish-swatches">
+        <div class="swatch swatch-gloss">
+          <div class="swatch-surface"></div>
+          <span>Глянец</span>
+        </div>
+        <div class="swatch swatch-satin">
+          <div class="swatch-surface"></div>
+          <span>Сатин</span>
+        </div>
+      </div>
+      <p class="vlt-caption">
+         Полиуретановая плёнка FlexarPPF, 200 мкр, с самовосстанавливающимся
+        покрытием — отличается только финальная фактура поверхности.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <div class="section-heading"><h2>Два варианта FlexarPPF</h2></div>
+    <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <a href="#catalog" class="category-card">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <h3>FlexarPPF Gloss</h3>
+        <p>Глянцевая полиуретановая плёнка, 200 мкр — сохраняет заводской блеск кузова.</p>
+      </a>
+      <a href="#catalog" class="category-card">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <h3>FlexarPPF Satin</h3>
+        <p>Матовая сатиновая плёнка, 200 мкр — бархатистая фактура и та же защита.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Каталог</h2>
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button data-category="all" class="active">Все</button>
+      <button data-category="gloss">Глянец</button>
+      <button data-category="satin">Сатин</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Товары рендерятся из /api/products через main.js -->
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-heading"><h2>Примеры работ</h2></div>
+    <div class="gallery-grid">
+      <div class="gallery-tile">
+        <img src="/img/gallery/1.jpg" alt="Оклейка FlexarPPF — BMW X5, общий план" loading="lazy">
+      </div>
+      <div class="gallery-tile">
+        <img src="/img/gallery/2.jpg" alt="Оклейка FlexarPPF — BMW X5, фара крупным планом" loading="lazy">
+      </div>
+      <div class="gallery-tile">
+        <img src="/img/gallery/3.jpg" alt="Оклейка FlexarPPF — BMW X5, вид сзади" loading="lazy">
+      </div>
+      <div class="gallery-tile">
+        <img src="/img/gallery/4.jpg" alt="Оклейка FlexarPPF — BMW X5, вид спереди сбоку" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Связаться с нами</p>
+      <h2>Ответим быстро в удобном мессенджере</h2>
+      <p class="lead">
+        Проконсультируем по подбору плёнки и рассчитаем стоимость под ваш автомобиль
+        ещё до оформления заказа в каталоге.
+      </p>
+    </div>
+    <div class="contact-buttons">
+      <a class="contact-btn" href="https://t.me/sexualfantas1es" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="contact-btn" href="https://wa.me/77073012455" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="contact-btn" href="tel:+777073012455">Позвонить нам</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div>
+      <strong id="footerShopName">FlexarPPF</strong><br>
+      Полиуретановые пленки · <span id="footerCity">Алматы</span>
+    </div>
+    <div>
+      Тел.: <span id="footerPhone">+7 777 363 36 63</span><br>
+      Оплата: Kaspi
+    </div>
+    <div>© <span id="year"></span> FlexarPPF. Все цены указаны в тенге.</div>
+  </div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
+  <div class="cart-drawer-header">
+    <h3>Корзина</h3>
+    <button class="close-btn" id="closeCartBtn" aria-label="Закрыть">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-row">
+      <span>Итого</span>
+      <span id="cartTotal">0 ₸</span>
+    </div>
+    <button class="btn btn-primary" style="width:100%" id="checkoutBtn">Оформить заказ</button>
+  </div>
+</aside>
+
+<!-- Checkout modal -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal">
+    <h3>Оформление заказа</h3>
+    <form id="checkoutForm">
+      <div class="field">
+        <label for="name">Имя</label>
+        <input id="name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="phone">Телефон</label>
+        <input id="phone" name="phone" required placeholder="+7 7__ ___ __ __" />
+      </div>
+      <div class="field">
+        <label for="city">Город</label>
+        <input id="city" name="city" required value="Алматы" />
+      </div>
+      <div class="field">
+        <label for="address">Адрес</label>
+        <input id="address" name="address" required />
+      </div>
+      <div class="field">
+        <label for="comment">Комментарий (необязательно)</label>
+        <textarea id="comment" name="comment" rows="2"></textarea>
+      </div>
+
+      <div class="payment-options">
+        <label class="payment-option selected" id="optKaspi">
+          <input type="radio" name="paymentMethod" value="kaspi" checked />
+          Kaspi Pay
+        </label>
+        <label class="payment-option" id="optCard">
+          <input type="radio" name="paymentMethod" value="card" />
+          Банковская карта
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%">Оплатить</button>
+    </form>
+    <div class="order-result" id="orderResult" style="display:none;"></div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

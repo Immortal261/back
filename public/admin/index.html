@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Аналитика — FlexarPPF</title>
+<link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+<body>
+
+<header class="admin-header">
+  <div class="wrap">
+    <div class="logo">FLEXAR<span>PPF</span> · Админка</div>
+    <div>
+      <span class="who" id="whoAmI"></span>
+      <button class="btn btn-sm" id="logoutBtn">Выйти</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="range-tabs" id="rangeTabs">
+    <button data-range="today" class="active">Сегодня</button>
+    <button data-range="yesterday">Вчера</button>
+    <button data-range="7d">7 дней</button>
+    <button data-range="30d">30 дней</button>
+    <button data-range="month">Текущий месяц</button>
+    <button data-range="lastMonth">Прошлый месяц</button>
+    <button data-range="custom">Период</button>
+  </div>
+  <div class="custom-range" id="customRange">
+    <input type="date" id="fromDate" />
+    <span>—</span>
+    <input type="date" id="toDate" />
+    <button class="btn btn-sm" id="applyCustomRange">Применить</button>
+  </div>
+
+  <div class="summary-grid" id="summaryGrid">
+    <div class="summary-card"><div class="label">Выручка</div><div class="value" id="sumRevenue">—</div></div>
+    <div class="summary-card"><div class="label">Заказов</div><div class="value" id="sumOrders">—</div></div>
+    <div class="summary-card"><div class="label">Продано, шт</div><div class="value" id="sumItems">—</div></div>
+    <div class="summary-card"><div class="label">На складе, шт</div><div class="value" id="sumStock">—</div></div>
+  </div>
+
+  <div class="chart-card">
+    <div id="chartContainer"></div>
+  </div>
+
+  <p class="low-stock-note" id="lowStockNote" style="display:none;"></p>
+
+  <h2 class="section-title">Товары</h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Товар</th>
+          <th class="num">Цена</th>
+          <th class="num">Остаток</th>
+          <th class="num">Продано</th>
+          <th class="num">Заказы</th>
+          <th class="num">Выручка</th>
+          <th>Статус</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="productsBody"></tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">Заказы</h2>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Дата</th>
+          <th>Клиент</th>
+          <th>Состав</th>
+          <th class="num">Сумма</th>
+          <th>Оплата</th>
+          <th>Статус</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- Модалка: изменить остаток -->
+<div class="modal-overlay" id="stockModal">
+  <div class="modal">
+    <button class="close-btn" data-close="stockModal">&times;</button>
+    <h3>Изменить остаток</h3>
+    <p id="stockModalProductName" style="color: var(--text-muted); font-size: 13px;"></p>
+    <form id="stockForm">
+      <div class="field">
+        <label>Операция</label>
+        <div class="range-tabs" id="stockOpTabs">
+          <button type="button" data-op="in" class="active">Поступление (+)</button>
+          <button type="button" data-op="out">Списание (−)</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="stockQty">Количество</label>
+        <input id="stockQty" type="number" min="1" step="1" required />
+      </div>
+      <div class="field">
+        <label for="stockReason">Причина</label>
+        <input id="stockReason" placeholder="Например: поставка от 07.08" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+      <p class="error-text" id="stockFormError"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Модалка: изменить цену -->
+<div class="modal-overlay" id="priceModal">
+  <div class="modal">
+    <button class="close-btn" data-close="priceModal">&times;</button>
+    <h3>Изменить цену</h3>
+    <p id="priceModalProductName" style="color: var(--text-muted); font-size: 13px;"></p>
+    <form id="priceForm">
+      <div class="field">
+        <label for="priceValue">Новая цена, ₸</label>
+        <input id="priceValue" type="number" min="1" step="1" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+      <p class="error-text" id="priceFormError"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Модалка: история движения товара -->
+<div class="modal-overlay" id="historyModal">
+  <div class="modal">
+    <button class="close-btn" data-close="historyModal">&times;</button>
+    <h3>История остатка</h3>
+    <p id="historyModalProductName" style="color: var(--text-muted); font-size: 13px;"></p>
+    <div id="historyList"></div>
+  </div>
+</div>
+
+<script src="/admin/js/admin.js"></script>
+</body>
+</html>
